@@ -1,0 +1,34 @@
+<div class="container, customcss">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <form [formGroup]="personalEditInfoForm" (ngSubmit)="onEditPerson(personalEditInfoForm.value)"> 
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" class="form-control" formControlName="name" [(ngModel)]="ds.FormObj.name">
+            </div>
+            <div class="form-group">
+                <label for="email">Mail</label>
+                <input type="email" id="email" class="form-control" formControlName="email" [(ngModel)]="ds.FormObj.email">
+            </div>
+            <div class="form-group">
+                <label for="da">Date of Birth</label>
+                <input type="date" id="dob" class="form-control" formControlName="dob" [(ngModel)]="ds.FormObj.dob">
+            </div>
+            <div class="form-group">
+                <label for="avatar">Avatar</label>
+                <input type="text" id="avatar" class="form-control" formControlName="avatar" [(ngModel)]="ds.FormObj.avatar">
+            </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="avatar">Country</label>
+                    <select id="dob" class="form-control" formControlName="country">
+                        <option *ngFor="let country of countryList;" [value]="country" [selected] = "countryList[0] ? true: null">{{country}}</option>
+                    </select>
+                </div>  
+            </div> 
+          <button class="btn btn-primary" type="submit">Complete Edit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

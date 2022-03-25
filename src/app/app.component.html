@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <ul class="nav nav-tabs">
+        <!-- <li role="presentation" class="active"><a href="#">Home</a></li> -->
+        <li><a routerLink="/create" [routerLinkActive]="['active']">Create </a></li>
+        <li><a routerLink="/view" [routerLinkActive]="['active']">View</a></li>
+        <li *ngIf="!ds.hidden" [routerLinkActive]="['active']"><a routerLink="/edit">Edit</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+      <router-outlet></router-outlet>
+  </div>

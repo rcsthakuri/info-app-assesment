@@ -1,0 +1,38 @@
+<div class="container, customcss">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <form [formGroup]="personalInfoForm" (ngSubmit)="onCreatePerson(personalInfoForm.value)" novalidate> 
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input  type="text" id="name" class="form-control" formControlName="name">
+                <div class="text-danger" *ngIf="!name.valid && (name.dirty || name.touched)">Provider valid name</div>
+            </div>
+            <div class="form-group">
+                <label for="email">Mail</label>
+                <input type="email" id="email" class="form-control" formControlName="email">
+                <div class="text-danger" *ngIf="!email.valid && (email.dirty || email.touched)">Provide valid email e.g username@domain</div>
+            </div>
+            <div class="form-group">
+                <label for="date">Date of Birth</label>
+                <input type="date" id="dob" class="form-control" formControlName="dob">
+                <div class="text-danger" *ngIf="!dob.valid && (dob.dirty || dob.touched)">Provide date in format dd/mm/yyyy</div>
+            </div>
+            <div class="form-group">
+                <label for="avatar">Avatar</label>
+                <input  type="text" id="avatar" class="form-control" formControlName="avatar">
+                <div class="text-danger" *ngIf="!avatar.valid && (avatar.dirty || avatar.touched)">Provider valid avtar image link</div>
+            </div>
+            <div class="form-group">
+                <label for="avatar">Country</label>
+                <select id="dob" class="form-control" formControlName="country">
+                    <option *ngFor="let country of countryList;" [value]="country" [selected] = "countryList[0] ? true: null">{{country}}</option>
+                </select>
+            </div>   
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+        <div class="text-danger" *ngIf="errmsg"> {{errmsg}}</div>
+        <div class="text-success" *ngIf="smsg">{{smsg}}</div>
+      </div>
+    </div>
+  </div>
+  
